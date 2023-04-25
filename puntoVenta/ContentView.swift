@@ -28,7 +28,7 @@ struct ContentView: View {
                 }
                 TextField("Apellido", text: $apellido).onChange(of: apellido) { value in
                     if !value.allSatisfy({ $0.isLetter }) {
-                        name = String(value.filter { $0.isLetter })
+                        apellido = String(value.filter { $0.isLetter })
                     }
                 }
                 TextField("Edad", text: $onlyNumbersValue)
@@ -41,24 +41,17 @@ struct ContentView: View {
                         }
                     
                 
-                TextField("Genero", text: $genero).onChange(of: name) { value in
+                TextField("Genero", text: $genero).onChange(of: genero) { value in
                     if !value.allSatisfy({ $0.isLetter }) {
                         genero = String(value.filter { $0.isLetter })
                     }
                 }
-                TextField("Correo", text: $email).onChange(of: name) { value in
+                TextField("Correo", text: $email)
+                
+                SecureField("Contraseña", text: $contraseña)
+                TextField("Rol", text: $rol).onChange(of: rol) { value in
                     if !value.allSatisfy({ $0.isLetter }) {
-                        name = String(value.filter { $0.isLetter })
-                    }
-                }
-                SecureField("Contraseña", text: $contraseña).onChange(of: name) { value in
-                    if !value.allSatisfy({ $0.isLetter }) {
-                        name = String(value.filter { $0.isLetter })
-                    }
-                }
-                TextField("Rol", text: $rol).onChange(of: name) { value in
-                    if !value.allSatisfy({ $0.isLetter }) {
-                        name = String(value.filter { $0.isLetter })
+                        rol = String(value.filter { $0.isLetter })
                     }
                 }
                 
